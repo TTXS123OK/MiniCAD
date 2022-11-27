@@ -8,3 +8,6 @@ minicad.iml
 
 ### Mac OS ###
 .DS_Store
+
+### Intermediate Files ###
+classes/
