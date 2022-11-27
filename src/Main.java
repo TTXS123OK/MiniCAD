@@ -1,7 +1,8 @@
-import utils.Util;
+import MVCModel.Window;
 
 public class Main {
     public static void main(String[] args) {
-        Util.print();
+        Window window = new Window();
+        window.setVisible(true);
     }
 }
