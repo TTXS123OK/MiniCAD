@@ -26,6 +26,10 @@ abstract public class Shape implements Serializable, Cloneable {
         g.setColor(this.color);
     }
 
+    public void setSelected(boolean b) {
+        is_selected = b;
+    }
+
     public void setColor(Color c) {
         this.color = c;
     }

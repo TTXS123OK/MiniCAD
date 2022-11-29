@@ -13,6 +13,7 @@ public class Main {
         view.setCtrl(ctrl);
         ctrl.setModel(model);
 
+        view.update();
         view.setVisible(true);
     }
 }

@@ -38,7 +38,6 @@ public class Model {
 
     public void setView(View view) {
         this.view = view;
-        view.update();
     }
 
     public void setUserAction(UserAction user_action) {

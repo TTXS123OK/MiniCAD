@@ -27,10 +27,6 @@ public class Control {
         this.model = model;
     }
 
-    public String getUserAction() {
-        return user_action.toString();
-    }
-
     public class StateButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -39,6 +35,12 @@ public class Control {
                 case "Rectangle" -> user_action = UserAction.RECTANGLE;
                 case "Circle" -> user_action = UserAction.CIRCLE;
                 case "Text" -> user_action = UserAction.TEXT;
+                case "Select" -> user_action = UserAction.SELECT;
+                case "Cancel Select" -> user_action = UserAction.IDLE;
+            }
+            if (model.getSelectedItem() != null) {
+                model.getSelectedItem().setSelected(false);
+                model.setSelectedItem(null);
             }
             model.setUserAction(user_action);
         }
@@ -49,9 +51,7 @@ public class Control {
         public void actionPerformed(ActionEvent e) {
             Shape selected = model.getSelectedItem();
             if (selected != null) {
-                ArrayList<Shape> shapes = model.getShapeList();
-                shapes.remove(selected);
-                model.setShapeList(shapes);
+                model.getShapeList().remove(selected);
             }
         }
     }
@@ -60,7 +60,19 @@ public class Control {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-
+            if (user_action == UserAction.SELECT) {
+                for (Shape shape : model.getShapeList()) {
+                    Point click_point = new Point(e.getX(), e.getY());
+                    if (shape.fallsIn(click_point)) {
+                        if (model.getSelectedItem() != null) {
+                            model.getSelectedItem().setSelected(false);
+                        }
+                        model.setSelectedItem(shape);
+                        shape.setSelected(true);
+                        break;
+                    }
+                }
+            }
         }
 
         @Override
@@ -75,9 +87,7 @@ public class Control {
             switch (user_action) {
                 case LINE -> {
                     Line new_line = new Line(new Point(start_point), cur_point);
-                    ArrayList<Shape> shapes = model.getShapeList();
-                    shapes.add(new_line);
-                    model.setShapeList(shapes);
+                    model.getShapeList().add(new_line);
                     model.setDrawingItem(null);
                 }
             }
@@ -100,7 +110,6 @@ public class Control {
                 case LINE -> {
                     Line new_line = new Line(start_point, cur_point);
                     model.setDrawingItem(new_line);
-                    System.out.println("drawing item was set " + new_line);
                 }
             }
         }

@@ -42,10 +42,10 @@ public class ShapePanel extends JPanel {
     public void update() {
         for (JButton btn : shape_buttons) {
             if (btn.getText().equalsIgnoreCase(model.getUserAction())) {
-                btn.setForeground(new Color(0x0000ff));
+                btn.setForeground(Color.blue);
             }
             else {
-                btn.setForeground(new Color(0x808080));
+                btn.setForeground(Color.black);
             }
         }
 

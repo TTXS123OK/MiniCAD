@@ -11,6 +11,10 @@ public class OptionPanel extends JPanel {
 
     private Model model;
     private Control ctrl;
+    private final JButton select_button;
+    private final JButton cancel_select_button;
+    private final ArrayList<JButton> operate_buttons;
+    private final ArrayList<JButton> color_buttons;
 
     public void setModel(Model model) {
         this.model = model;
@@ -18,6 +22,8 @@ public class OptionPanel extends JPanel {
 
     public void setCtrl(Control ctrl) {
         this.ctrl = ctrl;
+        this.select_button.addActionListener(ctrl.new StateButtonListener());
+        this.cancel_select_button.addActionListener(ctrl.new StateButtonListener());
     }
 
     public OptionPanel() {
@@ -56,17 +62,17 @@ public class OptionPanel extends JPanel {
         select_panel.setLayout(new GridLayout(0, 1));
         select_panel.setBorder(BorderFactory.createLineBorder(Color.gray));
         select_panel.add(new JLabel("Selector", SwingConstants.CENTER));
-        JButton select_button = new JButton("Select");
+        select_button = new JButton("Select");
         select_button.setFocusPainted(false);
         select_panel.add(select_button);
-        JButton remove_select_button = new JButton("Remove Select");
-        remove_select_button.setFocusPainted(false);
-        select_panel.add(remove_select_button);
+        cancel_select_button = new JButton("Cancel Select");
+        cancel_select_button.setFocusPainted(false);
+        select_panel.add(cancel_select_button);
 
         operate_panel.setLayout(new GridLayout(0, 1));
         operate_panel.setBorder(BorderFactory.createLineBorder(Color.gray));
         operate_panel.add(new JLabel("Operator", SwingConstants.CENTER));
-        ArrayList<JButton> operate_buttons = new ArrayList<>() {
+        operate_buttons = new ArrayList<>() {
             {
                 add(new JButton("Delete"));
                 add(new JButton("Copy"));
@@ -82,7 +88,7 @@ public class OptionPanel extends JPanel {
         color_panel.setLayout(new GridLayout(0, 1));
         color_panel.setBorder(BorderFactory.createLineBorder(Color.gray));
         color_panel.add(new JLabel("    ColorConvertor    ", SwingConstants.CENTER));
-        ArrayList<JButton> color_buttons = new ArrayList<>() {
+        color_buttons = new ArrayList<>() {
             {
                 add(new JButton("Black"));
                 add(new JButton("Red"));
@@ -112,5 +118,32 @@ public class OptionPanel extends JPanel {
             btn.setFocusPainted(false);
             color_panel.add(btn);
         }
+    }
+
+    public void update() {
+        if (model.getUserAction().equals("SELECT")) {
+            select_button.setForeground(Color.blue);
+        }
+        else {
+            select_button.setForeground(Color.black);
+        }
+
+        if (model.getSelectedItem() == null) {
+            for (JButton btn : operate_buttons) {
+                btn.setEnabled(false);
+            }
+            for (JButton btn : color_buttons) {
+                btn.setEnabled(false);
+            }
+        }
+        else {
+            for (JButton btn : operate_buttons) {
+                btn.setEnabled(true);
+            }
+            for (JButton btn : color_buttons) {
+                btn.setEnabled(true);
+            }
+        }
+        repaint();
     }
 }

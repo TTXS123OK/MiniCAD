@@ -55,5 +55,6 @@ public class View extends JFrame {
     public void update() {
         this.shape_panel.update();
         this.canvas_panel.update();
+        this.option_panel.update();
     }
 }

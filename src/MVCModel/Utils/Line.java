@@ -25,7 +25,7 @@ public class Line extends Shape {
     @Override
     public boolean fallsIn(Point p) {
         return Math.min(p1.x, p2.x) < p.x && p.x < Math.max(p1.x, p2.x)
-                && Math.min(p1.y, p2.y) < p.y && p.y < Math.max(p2.x, p2.y);
+                && Math.min(p1.y, p2.y) < p.y && p.y < Math.max(p1.y, p2.y);
     }
 
     @Override
