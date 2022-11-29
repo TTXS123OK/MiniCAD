@@ -73,6 +73,24 @@ public class Control {
         }
     }
 
+    public class ZoomListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Shape selected = model.getSelectedItem();
+            if (selected != null) {
+                if (e.getActionCommand().equals("Zoom Out")) {
+                    selected.zoomOut();
+                    model.setSelectedItem(selected);
+                }
+                else if (e.getActionCommand().equals("Zoom In")) {
+                    selected.zoomIn();
+                    model.setSelectedItem(selected);
+                }
+            }
+        }
+    }
+
     public class MouseActionListener implements MouseListener, MouseMotionListener {
 
         @Override

@@ -41,7 +41,7 @@ public class Line extends Shape {
         p1.x += (int) (0.1 * delta_x);
         p2.x -= (int) (0.1 * delta_x);
         p1.y += (int) (0.1 * delta_y);
-        p1.y -= (int) (0.1 * delta_y);
+        p2.y -= (int) (0.1 * delta_y);
     }
 
     @Override
@@ -51,6 +51,6 @@ public class Line extends Shape {
         p1.x -= (int) (0.1 * delta_x);
         p2.x += (int) (0.1 * delta_x);
         p1.y -= (int) (0.1 * delta_y);
-        p1.y += (int) (0.1 * delta_y);
+        p2.y += (int) (0.1 * delta_y);
     }
 }
