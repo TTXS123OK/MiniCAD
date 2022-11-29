@@ -55,6 +55,9 @@ public class Model {
             selected_item.setSelected(false);
         }
         selected_item = item;
+        if (item != null) {
+            item.setSelected(true);
+        }
         view.update();
     }
 

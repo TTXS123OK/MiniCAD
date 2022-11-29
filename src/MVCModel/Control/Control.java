@@ -1,6 +1,7 @@
 package MVCModel.Control;
 
 import MVCModel.Model.Model;
+import Shapes.Circle;
 import Shapes.Line;
 import Shapes.Rectangle;
 import Shapes.Shape;
@@ -117,11 +118,7 @@ public class Control {
                 for (Shape shape : model.getShapeList()) {
                     Point click_point = new Point(e.getX(), e.getY());
                     if (shape.fallsIn(click_point)) {
-                        if (model.getSelectedItem() != null) {
-                            model.getSelectedItem().setSelected(false);
-                        }
                         model.setSelectedItem(shape);
-                        shape.setSelected(true);
                         break;
                     }
                 }
@@ -149,6 +146,10 @@ public class Control {
                     Rectangle new_rect = new Rectangle(new Point(start_point), cur_point);
                     shapes.add(new_rect);
                 }
+                case CIRCLE -> {
+                    Circle new_circle = new Circle(new Point(start_point), cur_point);
+                    shapes.add(new_circle);
+                }
             }
             model.setShapeList(shapes);
             model.setDrawingItem(null);
@@ -175,6 +176,10 @@ public class Control {
                 case RECTANGLE -> {
                     Rectangle new_rect = new Rectangle(new Point(start_point), cur_point);
                     model.setDrawingItem(new_rect);
+                }
+                case CIRCLE -> {
+                    Circle new_circle = new Circle(new Point(start_point), cur_point);
+                    model.setDrawingItem(new_circle);
                 }
                 case SELECT -> {
                     Shape selected = model.getSelectedItem();
