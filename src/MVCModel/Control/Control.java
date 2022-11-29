@@ -51,7 +51,10 @@ public class Control {
         public void actionPerformed(ActionEvent e) {
             Shape selected = model.getSelectedItem();
             if (selected != null) {
-                model.getShapeList().remove(selected);
+                System.out.println("delete action performed");
+                ArrayList<Shape> shapes = model.getShapeList();
+                shapes.remove(selected);
+                model.setShapeList(shapes);
             }
         }
     }
@@ -87,7 +90,9 @@ public class Control {
             switch (user_action) {
                 case LINE -> {
                     Line new_line = new Line(new Point(start_point), cur_point);
-                    model.getShapeList().add(new_line);
+                    ArrayList<Shape> shapes = model.getShapeList();
+                    shapes.add(new_line);
+                    model.setShapeList(shapes);
                     model.setDrawingItem(null);
                 }
             }

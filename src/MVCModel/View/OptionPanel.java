@@ -22,8 +22,10 @@ public class OptionPanel extends JPanel {
 
     public void setCtrl(Control ctrl) {
         this.ctrl = ctrl;
-        this.select_button.addActionListener(ctrl.new StateButtonListener());
-        this.cancel_select_button.addActionListener(ctrl.new StateButtonListener());
+        select_button.addActionListener(ctrl.new StateButtonListener());
+        cancel_select_button.addActionListener(ctrl.new StateButtonListener());
+
+        operate_buttons.get(0).addActionListener(ctrl.new DeleteListener());
     }
 
     public OptionPanel() {
