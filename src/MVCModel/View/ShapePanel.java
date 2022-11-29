@@ -10,7 +10,14 @@ import java.util.ArrayList;
 public class ShapePanel extends JPanel {
     private Model model;
     private Control ctrl;
-    private ArrayList<JButton> shape_buttons;
+    private final ArrayList<JButton> shape_buttons = new ArrayList<>(){
+        {
+            add(new JButton("Line"));
+            add(new JButton("Rectangle"));
+            add(new JButton("Circle"));
+            add(new JButton("Text"));
+        }
+    };
 
     public void setModel(Model model) {
         this.model = model;
@@ -26,16 +33,8 @@ public class ShapePanel extends JPanel {
     public ShapePanel() {
         setLayout(new GridLayout(0, 1));
 
-        this.shape_buttons = new ArrayList<>(){
-            {
-                add(new JButton("Line"));
-                add(new JButton("Rectangle"));
-                add(new JButton("Circle"));
-                add(new JButton("Text"));
-            }
-        };
-
         for (JButton btn : shape_buttons) {
+            btn.setFocusPainted(false);
             add(btn);
         }
     }

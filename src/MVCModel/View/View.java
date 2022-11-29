@@ -11,6 +11,7 @@ public class View extends JFrame {
     private Model model;
     private Control ctrl;
     private ShapePanel shape_panel;
+    private OptionPanel option_panel;
 
     public void setModel(Model model) {
         this.model = model;
@@ -32,6 +33,9 @@ public class View extends JFrame {
 
         shape_panel = new ShapePanel();
         add(shape_panel, BorderLayout.WEST);
+
+        option_panel = new OptionPanel();
+        add(option_panel, BorderLayout.EAST);
     }
 
     public void update() {
