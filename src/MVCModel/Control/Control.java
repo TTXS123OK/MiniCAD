@@ -31,6 +31,7 @@ public class Control {
 
     public void setModel(Model model) {
         this.model = model;
+        model.setUserAction(user_action);
     }
 
     public class StateButtonListener implements ActionListener {
@@ -254,6 +255,13 @@ public class Control {
                             System.out.println("Save file failed");
                         }
                     }
+                }
+                case "Clear" -> {
+                    user_action = UserAction.IDLE;
+                    model.setShapeList(new ArrayList<>());
+                    model.setDrawingItem(null);
+                    model.setSelectedItem(null);
+                    model.setUserAction(UserAction.IDLE);
                 }
             }
         }
