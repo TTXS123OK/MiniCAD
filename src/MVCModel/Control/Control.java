@@ -1,8 +1,7 @@
 package MVCModel.Control;
 
 import MVCModel.Model.Model;
-import Shapes.Circle;
-import Shapes.Line;
+import Shapes.*;
 import Shapes.Rectangle;
 import Shapes.Shape;
 import Utils.UserAction;
@@ -41,7 +40,13 @@ public class Control {
                 case "Line" -> user_action = UserAction.LINE;
                 case "Rectangle" -> user_action = UserAction.RECTANGLE;
                 case "Circle" -> user_action = UserAction.CIRCLE;
-                case "Text" -> user_action = UserAction.TEXT;
+                case "Text" -> {
+                    user_action = UserAction.TEXT;
+                    input_str = null;
+                    while (input_str == null) {
+                        input_str = JOptionPane.showInputDialog("Enter new text:");
+                    }
+                }
                 case "Select" -> user_action = UserAction.SELECT;
                 case "Cancel Select" -> user_action = UserAction.IDLE;
             }
@@ -150,6 +155,10 @@ public class Control {
                     Circle new_circle = new Circle(new Point(start_point), cur_point);
                     shapes.add(new_circle);
                 }
+                case TEXT -> {
+                    Text new_text = new Text(input_str, new Point(start_point), cur_point);
+                    shapes.add(new_text);
+                }
             }
             model.setShapeList(shapes);
             model.setDrawingItem(null);
@@ -180,6 +189,10 @@ public class Control {
                 case CIRCLE -> {
                     Circle new_circle = new Circle(new Point(start_point), cur_point);
                     model.setDrawingItem(new_circle);
+                }
+                case TEXT -> {
+                    Text new_text = new Text(input_str, new Point(start_point), cur_point);
+                    model.setDrawingItem(new_text);
                 }
                 case SELECT -> {
                     Shape selected = model.getSelectedItem();

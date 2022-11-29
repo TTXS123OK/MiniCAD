@@ -20,7 +20,7 @@ public class Rectangle extends Shape {
     }
 
     @Override
-    public Shape clone() {
+    public Rectangle clone() {
         return new Rectangle(new Point(point), new Point(point.x + width, point.y + height));
     }
 

@@ -22,7 +22,7 @@ public class Circle extends Shape {
     }
 
     @Override
-    public Shape clone() {
+    public Circle clone() {
         return new Circle(this);
     }
 
