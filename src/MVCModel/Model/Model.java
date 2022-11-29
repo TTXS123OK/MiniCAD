@@ -1,6 +1,6 @@
 package MVCModel.Model;
 
-import Utils.Shape;
+import Shapes.Shape;
 import Utils.UserAction;
 import MVCModel.View.View;
 

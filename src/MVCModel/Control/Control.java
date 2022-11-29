@@ -1,9 +1,9 @@
 package MVCModel.Control;
 
 import MVCModel.Model.Model;
-import Utils.Line;
-import Utils.Rectangle;
-import Utils.Shape;
+import Shapes.Line;
+import Shapes.Rectangle;
+import Shapes.Shape;
 import Utils.UserAction;
 
 import javax.swing.*;

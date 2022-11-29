@@ -1,4 +1,4 @@
-package Utils;
+package Shapes;
 
 import java.awt.*;
 

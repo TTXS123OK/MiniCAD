@@ -2,7 +2,7 @@ package MVCModel.View;
 
 import MVCModel.Control.Control;
 import MVCModel.Model.Model;
-import Utils.Shape;
+import Shapes.Shape;
 
 import javax.swing.*;
 import java.awt.*;
