@@ -26,7 +26,7 @@ public class ShapePanel extends JPanel {
     public void setCtrl(Control ctrl) {
         this.ctrl = ctrl;
         for (JButton btn :shape_buttons) {
-            btn.addActionListener(ctrl.new ButtonActionListener());
+            btn.addActionListener(ctrl.new StateButtonListener());
         }
     }
 

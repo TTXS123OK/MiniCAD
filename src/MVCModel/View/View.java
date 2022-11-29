@@ -19,6 +19,7 @@ public class View extends JFrame {
         this.model = model;
         menu_bar.setModel(model);
         shape_panel.setModel(model);
+        canvas_panel.setModel(model);
         option_panel.setModel(model);
     }
 
@@ -26,6 +27,7 @@ public class View extends JFrame {
         this.ctrl = ctrl;
         menu_bar.setCtrl(ctrl);
         shape_panel.setCtrl(ctrl);
+        canvas_panel.setCtrl(ctrl);
         option_panel.setCtrl(ctrl);
     }
 
@@ -52,5 +54,6 @@ public class View extends JFrame {
 
     public void update() {
         this.shape_panel.update();
+        this.canvas_panel.update();
     }
 }
