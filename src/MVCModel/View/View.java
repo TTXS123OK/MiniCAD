@@ -10,17 +10,23 @@ public class View extends JFrame {
 
     private Model model;
     private Control ctrl;
+    private MenuBar menu_bar;
     private ShapePanel shape_panel;
+    private CanvasPanel canvas_panel;
     private OptionPanel option_panel;
 
     public void setModel(Model model) {
         this.model = model;
+        menu_bar.setModel(model);
         shape_panel.setModel(model);
+        option_panel.setModel(model);
     }
 
     public void setCtrl(Control ctrl) {
         this.ctrl = ctrl;
+        menu_bar.setCtrl(ctrl);
         shape_panel.setCtrl(ctrl);
+        option_panel.setCtrl(ctrl);
     }
 
     public View() {
@@ -34,8 +40,14 @@ public class View extends JFrame {
         shape_panel = new ShapePanel();
         add(shape_panel, BorderLayout.WEST);
 
+        canvas_panel = new CanvasPanel();
+        add(canvas_panel, BorderLayout.CENTER);
+
         option_panel = new OptionPanel();
         add(option_panel, BorderLayout.EAST);
+
+        menu_bar = new MenuBar();
+        setJMenuBar(menu_bar);
     }
 
     public void update() {
