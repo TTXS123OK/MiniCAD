@@ -27,9 +27,15 @@ public class OptionPanel extends JPanel {
 
         operate_buttons.get(0).addActionListener(ctrl.new DeleteListener());
         operate_buttons.get(1).addActionListener(ctrl.new CopyListener());
+
         Control.ZoomListener zoom_listener = ctrl.new ZoomListener();
         operate_buttons.get(2).addActionListener(zoom_listener);
         operate_buttons.get(3).addActionListener(zoom_listener);
+
+        Control.ColorConvertListener color_convert_listener = ctrl.new ColorConvertListener();
+        for (JButton btn : color_buttons) {
+            btn.addActionListener(color_convert_listener);
+        }
     }
 
     public OptionPanel() {

@@ -61,7 +61,6 @@ public class Control {
     }
 
     public class CopyListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             Shape selected = model.getSelectedItem();
@@ -74,7 +73,6 @@ public class Control {
     }
 
     public class ZoomListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             Shape selected = model.getSelectedItem();
@@ -87,6 +85,22 @@ public class Control {
                     selected.zoomIn();
                     model.setSelectedItem(selected);
                 }
+            }
+        }
+    }
+
+    public class ColorConvertListener implements  ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Shape selected = model.getSelectedItem();
+            if (selected != null) {
+                switch (e.getActionCommand()) {
+                    case "Black" -> selected.setColor(Color.black);
+                    case "Red" -> selected.setColor(Color.red);
+                    case "Green" -> selected.setColor(Color.green);
+                    case "Blue" -> selected.setColor(Color.blue);
+                }
+                model.setSelectedItem(selected);
             }
         }
     }
