@@ -27,7 +27,7 @@ public class Line extends Shape {
     }
 
     @Override
-    void move(int dx, int dy) {
+    public void move(int dx, int dy) {
         p1.x += dx;
         p2.x += dx;
         p1.y += dy;

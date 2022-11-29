@@ -15,11 +15,13 @@ public class Control {
 
     private UserAction user_action;
     private final Point start_point;
+    private final Point last_point;
     private String input_str;
 
     public Control() {
-        this.user_action = UserAction.IDLE;
-        this.start_point = new Point();
+        user_action = UserAction.IDLE;
+        start_point = new Point();
+        last_point = new Point();
     }
 
 
@@ -94,6 +96,8 @@ public class Control {
         public void mousePressed(MouseEvent e) {
             start_point.x = e.getX();
             start_point.y = e.getY();
+            last_point.x = e.getX();
+            last_point.y = e.getY();
         }
 
         @Override
@@ -127,6 +131,15 @@ public class Control {
                 case LINE -> {
                     Line new_line = new Line(start_point, cur_point);
                     model.setDrawingItem(new_line);
+                }
+                case SELECT -> {
+                    Shape selected = model.getSelectedItem();
+                    if (selected != null) {
+                        selected.move(cur_point.x - last_point.x, cur_point.y - last_point.y);
+                    }
+                    model.setSelectedItem(selected);
+                    last_point.x = cur_point.x;
+                    last_point.y = cur_point.y;
                 }
             }
         }

@@ -15,7 +15,7 @@ abstract public class Shape implements Serializable, Cloneable {
 
     abstract public boolean fallsIn(Point p);
 
-    abstract void move(int dx, int dy);
+    abstract public void move(int dx, int dy);
 
     abstract public void zoomIn();
 
