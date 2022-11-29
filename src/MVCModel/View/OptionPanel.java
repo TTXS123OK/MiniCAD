@@ -47,28 +47,25 @@ public class OptionPanel extends JPanel {
         JPanel color_panel = new JPanel();
 
         c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1;
+        c.weighty = 1;
+
         c.gridx = 0;
         c.gridy = 0;
         c.gridheight = 1;
         c.gridwidth = 1;
-        c.weightx = 1;
-        c.weighty = 1;
         add(select_panel, c);
 
         c.gridx = 0;
         c.gridy = 1;
         c.gridheight = 2;
         c.gridwidth = 1;
-        c.weightx = 1;
-        c.weighty = 1;
         add(operate_panel, c);
 
         c.gridx = 0;
         c.gridy = 3;
         c.gridheight = 2;
         c.gridwidth = 1;
-        c.weightx = 1;
-        c.weighty = 1;
         add(color_panel, c);
 
         select_panel.setLayout(new GridLayout(0, 1));
