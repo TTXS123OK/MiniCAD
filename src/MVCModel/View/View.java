@@ -17,7 +17,6 @@ public class View extends JFrame {
 
     public void setModel(Model model) {
         this.model = model;
-        menu_bar.setModel(model);
         shape_panel.setModel(model);
         canvas_panel.setModel(model);
         option_panel.setModel(model);

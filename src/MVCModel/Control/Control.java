@@ -5,8 +5,11 @@ import MVCModel.Utils.Line;
 import MVCModel.Utils.Shape;
 import MVCModel.Utils.UserAction;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Control {
@@ -179,6 +182,53 @@ public class Control {
         @Override
         public void mouseMoved(MouseEvent e) {
 
+        }
+    }
+
+    public class FileListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JFileChooser file_chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("miniCad file (*.cad)", "cad");
+            file_chooser.setFileFilter(filter);
+            switch (e.getActionCommand()) {
+                case "Open" -> {
+                    if (file_chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                        File file = file_chooser.getSelectedFile();
+                        try {
+                            ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
+                            ArrayList<Shape> shapes = new ArrayList<>();
+                            while (true) {
+                                try {
+                                    Shape shape = (Shape) input.readObject();
+                                    shapes.add(shape);
+                                } catch (EOFException ex) {
+                                    break;
+                                }
+                            }
+                            model.setShapeList(shapes);
+                            user_action = UserAction.IDLE;
+                            model.setUserAction(user_action);
+                            input.close();
+                        } catch (IOException | ClassNotFoundException ex) {
+                            System.out.println("Open file failed");
+                        }
+                    }
+                }
+                case "Save" -> {
+                    if (file_chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+                        File file = new File(file_chooser.getSelectedFile().getAbsolutePath() + ".cad");
+                        try {
+                            ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(file));
+                            for (Shape shape : model.getShapeList()) {
+                                output.writeObject(shape);
+                            }
+                        } catch (IOException ex) {
+                            System.out.println("Save file failed");
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -1,29 +1,28 @@
 package MVCModel.View;
 
 import MVCModel.Control.Control;
-import MVCModel.Model.Model;
 
 import javax.swing.*;
 
 public class MenuBar extends JMenuBar {
-    private Model model;
     private Control ctrl;
-
-    public void setModel(Model model) {
-        this.model = model;
-    }
+    private final JMenuItem load_menu_item, save_menu_item;
 
     public void setCtrl(Control ctrl) {
         this.ctrl = ctrl;
+
+        Control.FileListener file_listener = ctrl.new FileListener();
+        this.load_menu_item.addActionListener(file_listener);
+        this.save_menu_item.addActionListener(file_listener);
     }
 
     public MenuBar() {
         JMenu file_menu = new JMenu("File");
-        JMenuItem load_item = new JMenuItem("Open");
-        JMenuItem save_item = new JMenuItem("Save");
+        load_menu_item = new JMenuItem("Open");
+        save_menu_item = new JMenuItem("Save");
 
-        file_menu.add(load_item);
-        file_menu.add(save_item);
+        file_menu.add(load_menu_item);
+        file_menu.add(save_menu_item);
         add(file_menu);
     }
 }
