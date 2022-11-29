@@ -26,6 +26,7 @@ public class OptionPanel extends JPanel {
         cancel_select_button.addActionListener(ctrl.new StateButtonListener());
 
         operate_buttons.get(0).addActionListener(ctrl.new DeleteListener());
+        operate_buttons.get(1).addActionListener(ctrl.new CopyListener());
     }
 
     public OptionPanel() {

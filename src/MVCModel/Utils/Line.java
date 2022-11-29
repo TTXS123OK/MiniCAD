@@ -17,9 +17,7 @@ public class Line extends Shape {
 
     @Override
     public Line clone() {
-        Point new_p1 = new Point(p1.x + 5, p1.y + 5);
-        Point new_p2 = new Point(p2.x + 5, p2.y + 5);
-        return new Line(new_p1, new_p2);
+        return new Line(this.p1, this.p2);
     }
 
     @Override

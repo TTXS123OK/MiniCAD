@@ -51,9 +51,21 @@ public class Control {
         public void actionPerformed(ActionEvent e) {
             Shape selected = model.getSelectedItem();
             if (selected != null) {
-                System.out.println("delete action performed");
                 ArrayList<Shape> shapes = model.getShapeList();
                 shapes.remove(selected);
+                model.setShapeList(shapes);
+            }
+        }
+    }
+
+    public class CopyListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Shape selected = model.getSelectedItem();
+            if (selected != null) {
+                ArrayList<Shape> shapes = model.getShapeList();
+                shapes.add(selected.clone());
                 model.setShapeList(shapes);
             }
         }
