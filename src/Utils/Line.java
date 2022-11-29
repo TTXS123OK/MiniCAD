@@ -1,4 +1,4 @@
-package MVCModel.Utils;
+package Utils;
 
 import java.awt.*;
 

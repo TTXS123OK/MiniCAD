@@ -1,4 +1,4 @@
-package MVCModel.Utils;
+package Utils;
 
 public enum UserAction {
     SELECT,

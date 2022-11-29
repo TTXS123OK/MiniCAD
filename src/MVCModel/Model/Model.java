@@ -1,7 +1,7 @@
 package MVCModel.Model;
 
-import MVCModel.Utils.Shape;
-import MVCModel.Utils.UserAction;
+import Utils.Shape;
+import Utils.UserAction;
 import MVCModel.View.View;
 
 import java.util.ArrayList;

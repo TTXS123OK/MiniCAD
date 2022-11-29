@@ -1,9 +1,9 @@
 package MVCModel.Control;
 
 import MVCModel.Model.Model;
-import MVCModel.Utils.Line;
-import MVCModel.Utils.Shape;
-import MVCModel.Utils.UserAction;
+import Utils.Line;
+import Utils.Shape;
+import Utils.UserAction;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -59,6 +59,7 @@ public class Control {
                 ArrayList<Shape> shapes = model.getShapeList();
                 shapes.remove(selected);
                 model.setShapeList(shapes);
+                model.setSelectedItem(null);
             }
         }
     }
