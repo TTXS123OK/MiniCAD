@@ -31,8 +31,8 @@ public class Rectangle extends Shape {
 
     @Override
     public void move(int dx, int dy) {
-        width += dx;
-        height += dy;
+        point.x += dx;
+        point.y += dy;
     }
 
     @Override
