@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class Control {
 
     private Model model;
-
     private UserAction user_action;
     private final Point start_point;
     private final Point last_point;
@@ -27,7 +26,6 @@ public class Control {
         start_point = new Point();
         last_point = new Point();
     }
-
 
     public void setModel(Model model) {
         this.model = model;

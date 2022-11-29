@@ -5,8 +5,6 @@ import java.io.Serializable;
 
 abstract public class Shape implements Serializable, Cloneable {
 
-    private float stroke = 2.0f;
-    private float selected_stroke = 4.0f;
     private Color color = Color.BLACK;
 
     protected boolean is_selected = false;
@@ -22,6 +20,8 @@ abstract public class Shape implements Serializable, Cloneable {
     abstract public void zoomOut();
 
     public void render(Graphics2D g) {
+        float stroke = 2.0f;
+        float selected_stroke = 4.0f;
         g.setStroke(is_selected ? new BasicStroke(selected_stroke) : new BasicStroke(stroke));
         g.setColor(this.color);
     }
@@ -34,4 +34,3 @@ abstract public class Shape implements Serializable, Cloneable {
         this.color = c;
     }
 }
-

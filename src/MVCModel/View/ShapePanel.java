@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class ShapePanel extends JPanel {
     private Model model;
-    private Control ctrl;
     private final ArrayList<JButton> shape_buttons = new ArrayList<>(){
         {
             add(new JButton("Line"));
@@ -24,7 +23,6 @@ public class ShapePanel extends JPanel {
     }
 
     public void setCtrl(Control ctrl) {
-        this.ctrl = ctrl;
         Control.StateButtonListener state_listener = ctrl.new StateButtonListener();
         for (JButton btn :shape_buttons) {
             btn.addActionListener(state_listener);

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class OptionPanel extends JPanel {
 
     private Model model;
-    private Control ctrl;
     private final JButton select_button;
     private final JButton cancel_select_button;
     private final ArrayList<JButton> operate_buttons;
@@ -21,7 +20,6 @@ public class OptionPanel extends JPanel {
     }
 
     public void setCtrl(Control ctrl) {
-        this.ctrl = ctrl;
         select_button.addActionListener(ctrl.new StateButtonListener());
         cancel_select_button.addActionListener(ctrl.new StateButtonListener());
 

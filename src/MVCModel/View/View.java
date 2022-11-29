@@ -8,22 +8,18 @@ import java.awt.*;
 
 public class View extends JFrame {
 
-    private Model model;
-    private Control ctrl;
-    private MenuBar menu_bar;
-    private ShapePanel shape_panel;
-    private CanvasPanel canvas_panel;
-    private OptionPanel option_panel;
+    private final MenuBar menu_bar;
+    private final ShapePanel shape_panel;
+    private final CanvasPanel canvas_panel;
+    private final OptionPanel option_panel;
 
     public void setModel(Model model) {
-        this.model = model;
         shape_panel.setModel(model);
         canvas_panel.setModel(model);
         option_panel.setModel(model);
     }
 
     public void setCtrl(Control ctrl) {
-        this.ctrl = ctrl;
         menu_bar.setCtrl(ctrl);
         shape_panel.setCtrl(ctrl);
         canvas_panel.setCtrl(ctrl);

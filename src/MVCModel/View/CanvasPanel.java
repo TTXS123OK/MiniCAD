@@ -10,14 +10,12 @@ import java.awt.*;
 public class CanvasPanel extends JPanel {
 
     private Model model;
-    private Control ctrl;
 
     public void setModel(Model model) {
         this.model = model;
     }
 
     public void setCtrl(Control ctrl) {
-        this.ctrl = ctrl;
         Control.MouseActionListener mouse_action_listener = ctrl.new MouseActionListener();
         addMouseListener(mouse_action_listener);
         addMouseMotionListener(mouse_action_listener);

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Model {
 
     private View view;
-
     private UserAction user_action;
     private Shape selected_item;
     private Shape current_drawing_item;

@@ -3,8 +3,8 @@ package Shapes;
 import java.awt.*;
 
 public class Text extends Shape {
-    private String str;
-    private Point point;
+    private final String str;
+    private final Point point;
     private int width, height;
 
     public Text(Text t) {

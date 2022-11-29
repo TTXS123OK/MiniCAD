@@ -5,6 +5,11 @@ import java.awt.*;
 public class Line extends Shape {
     private final Point p1, p2;
 
+    public Line(Line l) {
+        p1 = new Point(l.p1);
+        p2 = new Point(l.p2);
+    }
+
     public Line(Point p1, Point p2) {
         this.p1 = p1;
         this.p2 = p2;
@@ -17,7 +22,7 @@ public class Line extends Shape {
 
     @Override
     public Line clone() {
-        return new Line(new Point(p1), new Point(p2));
+        return new Line(this);
     }
 
     @Override
