@@ -51,6 +51,9 @@ public class Model {
     }
 
     public void setSelectedItem(Shape item) {
+        if (selected_item != null) {
+            selected_item.setSelected(false);
+        }
         selected_item = item;
         view.update();
     }

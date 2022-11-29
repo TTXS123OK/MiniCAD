@@ -2,6 +2,7 @@ package MVCModel.Control;
 
 import MVCModel.Model.Model;
 import Utils.Line;
+import Utils.Rectangle;
 import Utils.Shape;
 import Utils.UserAction;
 
@@ -44,7 +45,6 @@ public class Control {
                 case "Cancel Select" -> user_action = UserAction.IDLE;
             }
             if (model.getSelectedItem() != null) {
-                model.getSelectedItem().setSelected(false);
                 model.setSelectedItem(null);
             }
             model.setUserAction(user_action);
@@ -139,15 +139,19 @@ public class Control {
         @Override
         public void mouseReleased(MouseEvent e) {
             Point cur_point = new Point(e.getX(), e.getY());
+            ArrayList<Shape> shapes = model.getShapeList();
             switch (user_action) {
                 case LINE -> {
                     Line new_line = new Line(new Point(start_point), cur_point);
-                    ArrayList<Shape> shapes = model.getShapeList();
                     shapes.add(new_line);
-                    model.setShapeList(shapes);
-                    model.setDrawingItem(null);
+                }
+                case RECTANGLE -> {
+                    Rectangle new_rect = new Rectangle(new Point(start_point), cur_point);
+                    shapes.add(new_rect);
                 }
             }
+            model.setShapeList(shapes);
+            model.setDrawingItem(null);
         }
 
         @Override
@@ -167,6 +171,10 @@ public class Control {
                 case LINE -> {
                     Line new_line = new Line(start_point, cur_point);
                     model.setDrawingItem(new_line);
+                }
+                case RECTANGLE -> {
+                    Rectangle new_rect = new Rectangle(new Point(start_point), cur_point);
+                    model.setDrawingItem(new_rect);
                 }
                 case SELECT -> {
                     Shape selected = model.getSelectedItem();
