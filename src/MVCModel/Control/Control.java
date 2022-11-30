@@ -41,10 +41,7 @@ public class Control {
                 case "Circle" -> user_action = UserAction.CIRCLE;
                 case "Text" -> {
                     user_action = UserAction.TEXT;
-                    input_str = null;
-                    while (input_str == null) {
-                        input_str = JOptionPane.showInputDialog("Enter new text:");
-                    }
+                    input_str = JOptionPane.showInputDialog("Enter new text:");
                 }
                 case "Select" -> user_action = UserAction.SELECT;
                 case "Cancel Select" -> user_action = UserAction.IDLE;
@@ -155,6 +152,9 @@ public class Control {
                     shapes.add(new_circle);
                 }
                 case TEXT -> {
+                    if (input_str == null || input_str.equals("")) {
+                        return;
+                    }
                     Text new_text = new Text(input_str, new Point(start_point), cur_point);
                     shapes.add(new_text);
                 }
@@ -190,6 +190,9 @@ public class Control {
                     model.setDrawingItem(new_circle);
                 }
                 case TEXT -> {
+                    if (input_str == null || input_str.equals("")) {
+                        return;
+                    }
                     Text new_text = new Text(input_str, new Point(start_point), cur_point);
                     model.setDrawingItem(new_text);
                 }

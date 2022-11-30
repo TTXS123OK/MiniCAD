@@ -22,6 +22,8 @@ public class Text extends Shape {
     }
 
     public void render(Graphics2D g) {
+        super.render(g);
+
         if (str == null) {
             return;
         }
@@ -29,6 +31,9 @@ public class Text extends Shape {
         Font font = new Font("Californian FB", is_selected ? Font.BOLD : Font.PLAIN, height);
         g.setFont(font);
         g.drawString(str, point.x, point.y + height);
+
+        // update with from canvas
+        width = g.getFontMetrics().stringWidth(str);
     }
 
     @Override
