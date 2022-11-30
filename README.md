@@ -27,3 +27,9 @@ sh compile.sh
 # run
 java -jar ./bin/MiniCAD.jar
 ```
+
+
+### Demo
+```html
+<video src="demo/demo.mp4"></video>
+```
