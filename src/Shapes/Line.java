@@ -8,6 +8,7 @@ public class Line extends Shape {
     public Line(Line l) {
         p1 = new Point(l.p1);
         p2 = new Point(l.p2);
+        color = l.color;
     }
 
     public Line(Point p1, Point p2) {

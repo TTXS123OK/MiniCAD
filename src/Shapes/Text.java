@@ -12,6 +12,7 @@ public class Text extends Shape {
         width = t.width;
         height = t.height;
         str = t.str;
+        color = t.color;
     }
 
     public Text(String str, Point p1, Point p2) {

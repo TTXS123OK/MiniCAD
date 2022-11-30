@@ -12,6 +12,7 @@ public class Rectangle extends Shape {
         point = new Point(r.point);
         width = r.width;
         height = r.height;
+        color = r.color;
     }
 
     public Rectangle(Point p1, Point p2) {

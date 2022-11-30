@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 abstract public class Shape implements Serializable, Cloneable {
 
-    private Color color = Color.BLACK;
+    protected Color color = Color.BLACK;
 
     protected boolean is_selected = false;
 

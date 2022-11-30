@@ -9,6 +9,7 @@ public class Circle extends Shape {
     public Circle(Circle c) {
        center = new Point(c.center);
        radius = c.radius;
+       color = c.color;
     }
 
     public Circle(Point p1, Point p2) {
