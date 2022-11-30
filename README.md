@@ -22,11 +22,8 @@ java --version
 ##### Compile and Run
 ```shell
 # compile
-javac -cp ./src/ -d ./classes/ ./src/Main.java
-
-# package to jar
-jar cmvf META-INF/MANIFEST.MF MiniCAD.jar ./classes/*
+sh compile.sh
 
 # run
-java -jar MiniCAD.jar
+java -jar ./bin/MiniCAD.jar
 ```
