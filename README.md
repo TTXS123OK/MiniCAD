@@ -30,6 +30,6 @@ java -jar ./bin/MiniCAD.jar
 
 
 ### Demo
-```html
-<video src="demo/demo.mp4"></video>
-```
+
+https://user-images.githubusercontent.com/62226131/204739938-b2d2f2f4-8d5d-409b-adce-b1684192af19.mp4
+
